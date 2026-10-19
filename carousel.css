@@ -1,0 +1,150 @@
+/* The original grid remains intact when JavaScript is unavailable. */
+.project-carousel {
+  --coverflow-ease: cubic-bezier(.18,.76,.16,1.08);
+  position: relative;
+  margin: 2px -23px 0;
+  padding: 0 0 4px;
+  border-radius: 14px;
+  outline-offset: -5px;
+}
+.project-carousel:focus-visible { outline: 2px solid var(--accent); }
+.project-grid.coverflow-stage {
+  --coverflow-stage-height: 455px;
+  display: block;
+  position: relative;
+  height: var(--coverflow-stage-height);
+  min-height: 430px;
+  margin: 0;
+  perspective: 1050px;
+  perspective-origin: 50% 44%;
+  isolation: isolate;
+  overflow: clip;
+  touch-action: pan-y pinch-zoom;
+  cursor: grab;
+}
+.project-grid.coverflow-stage > .project-card,
+.project-grid.coverflow-stage > .coverflow-side-hit {
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  width: min(410px, calc(100% - 94px));
+  margin: 0;
+  transform-origin: 50% 50%;
+  transition: transform 700ms var(--coverflow-ease), opacity 500ms ease, box-shadow 700ms ease;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.project-grid.coverflow-stage > .project-card {
+  border-radius: 13px;
+  box-shadow: 0 18px 45px -27px rgba(33,52,78,.35), 0 2px 5px rgba(33,52,78,.035);
+  pointer-events: none;
+}
+.project-grid.coverflow-stage > .project-card.is-current {
+  pointer-events: auto;
+  box-shadow: 0 22px 45px -25px rgba(33,52,78,.32), 0 2px 8px rgba(33,52,78,.055);
+}
+.project-grid.coverflow-stage > .project-card[hidden],
+.project-grid.coverflow-stage > .coverflow-side-hit[hidden] { display: none !important; }
+.project-grid.coverflow-stage .project-image { aspect-ratio: 1.86; }
+.project-grid.coverflow-stage .project-image img { width:100%;height:100%;object-fit:cover; }
+.project-grid.coverflow-stage .project-card-body { padding:19px 22px 0; }
+.project-grid.coverflow-stage .project-meta { font-size:9px; }
+.project-grid.coverflow-stage .project-card h2 { font-size:19px;margin-top:12px; }
+.project-grid.coverflow-stage .project-card p { font-size:12px;line-height:1.85;min-height:67px;margin-top:11px; }
+.project-grid.coverflow-stage .project-links { gap:12px;margin-top:16px;padding:11px 0; }
+.project-grid.coverflow-stage .project-links a { font-size:11px;min-height:34px; }
+.project-grid.coverflow-stage .project-links a:hover { color:var(--accent); }
+.project-grid.coverflow-stage > .coverflow-side-hit {
+  padding: 0;
+  border: 0;
+  border-radius: 13px;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.project-carousel.is-dragging .coverflow-stage { cursor:grabbing; }
+.project-carousel.is-dragging .coverflow-stage > .project-card,
+.project-carousel.is-dragging .coverflow-stage > .coverflow-side-hit {
+  transition: none;
+  cursor: grabbing;
+  user-select:none;
+  -webkit-user-select:none;
+}
+.coverflow-controls { display:flex;align-items:center;justify-content:center;gap:16px;min-height:46px;margin-top:2px;position:relative;z-index:5; }
+.coverflow-arrow { display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--window);color:var(--body);font-size:24px;line-height:1;transition:background .2s,color .2s,transform .2s; }
+.coverflow-arrow:hover { background:var(--accent-soft);color:var(--ink-strong);transform:translateY(-1px); }
+.coverflow-arrow:active { transform:scale(.93); }
+.coverflow-arrow:disabled { opacity:.35; }
+.coverflow-dots { display:flex;align-items:center;justify-content:center;gap:2px;min-height:36px; }
+.coverflow-dot { position:relative;width:22px;height:32px;background:transparent;padding:0;border-radius:5px; }
+.coverflow-dot::after { content:'';position:absolute;top:13px;left:8px;width:6px;height:6px;border-radius:10px;background:var(--muted);opacity:.3;transition:width .35s,left .35s,opacity .35s,background .35s; }
+.coverflow-dot[aria-pressed=true]::after { width:17px;left:2px;opacity:1;background:var(--accent); }
+.coverflow-counter { position:absolute;right:26px;top:16px;font-family:var(--mono);font-size:9px;font-variant-numeric:tabular-nums;letter-spacing:.08em;color:var(--muted); }
+.coverflow-hint { display:flex;align-items:center;justify-content:center;gap:8px;margin:7px 0 0;font-size:9px;letter-spacing:.025em;color:var(--muted);line-height:1.5; }
+.coverflow-gesture { font-size:16px;line-height:1; }
+.coverflow-single .coverflow-hint { visibility:hidden; }
+.coverflow-single .coverflow-counter { display:none; }
+.coverflow-empty { display:none; }
+.tools-view .project-carousel { margin-top:8px; }
+:root[data-theme=dark] .coverflow-stage > .project-card.is-current { box-shadow:0 22px 50px -24px rgba(0,0,0,.6),0 2px 12px rgba(0,0,0,.15); }
+@media(min-width:1201px) {
+  .project-carousel { margin-left:-30px;margin-right:-30px; }
+}
+@media(max-width:600px) {
+  .project-carousel { margin-left:-23px;margin-right:-23px; }
+  .project-grid.coverflow-stage { min-height:437px;perspective:850px; }
+  .project-grid.coverflow-stage > .project-card,
+  .project-grid.coverflow-stage > .coverflow-side-hit { width:calc(100% - 80px);max-width:360px;top:8px; }
+  .project-grid.coverflow-stage .project-image { aspect-ratio:1.65; }
+  .project-grid.coverflow-stage .project-card-body { padding:17px 18px 0; }
+  .project-grid.coverflow-stage .project-meta { font-size:8px; }
+  .project-grid.coverflow-stage .project-card h2 { font-size:18px; }
+  .project-grid.coverflow-stage .project-card p { font-size:12px;line-height:1.8;min-height:86px; }
+  .project-grid.coverflow-stage .project-links { gap:9px;margin-top:15px;padding:10px 0; }
+  .project-grid.coverflow-stage .project-links a { font-size:10px;min-height:38px; }
+  .coverflow-controls { gap:13px;margin-top:0; }
+  .coverflow-arrow { width:40px;height:40px; }
+  .coverflow-counter { right:19px;font-size:8px;top:17px; }
+  .coverflow-hint { font-size:8px;gap:6px;margin-top:6px; }
+  .tools-view .project-carousel { margin-top:13px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .project-grid.coverflow-stage { perspective:none; }
+  .project-grid.coverflow-stage > .project-card,
+  .project-grid.coverflow-stage > .coverflow-side-hit { transition:none;will-change:auto; }
+  .coverflow-dot::after,.coverflow-arrow { transition:none; }
+}
+/* Give the carousel the same full-window stage as the reference interaction. */
+@media(min-width:791px){
+  .js .has-coverflow{padding-top:10px}
+  .js .has-coverflow>.view-path{display:none}
+  .js .has-coverflow>.page-heading{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;padding:0}
+  .js .has-coverflow .works-toolbar{margin:0 0 4px;padding:0;min-height:34px;border:0}
+  .js .has-coverflow .works-toolbar>p{font-size:11px}
+  .js .has-coverflow .tools-intro{margin:3px 0 9px;font-size:11px;line-height:1.5}
+  .js .has-coverflow>.view-footer{margin-top:12px;padding:12px 0}
+  .js .has-coverflow .works-note{margin-top:12px;font-size:10px;line-height:1.7}
+  .js .has-coverflow .project-grid.coverflow-stage{min-height:408px}
+  .js .has-coverflow .project-grid.coverflow-stage>.project-card{width:min(370px,calc(100% - 94px));height:390px;display:flex;flex-direction:column}
+  .js .has-coverflow .project-grid.coverflow-stage>.coverflow-side-hit{width:min(370px,calc(100% - 94px))}
+  .js .has-coverflow .project-image{height:152px;aspect-ratio:auto;flex-shrink:0}
+  .js .has-coverflow .project-card-body{flex:1;min-height:0;display:flex;flex-direction:column;padding:15px 20px 0}
+  .js .has-coverflow .project-card h2{margin-top:9px;font-size:19px;line-height:1.3}
+  .js .has-coverflow .project-card p{min-height:0;font-size:12px;line-height:1.75;margin-top:10px}
+  .js .has-coverflow .project-links{margin-top:auto;padding:10px 0;flex-shrink:0}
+  .coverflow-controls{min-height:42px}.coverflow-hint{margin-top:2px}
+}
+@media(min-width:791px) and (min-height:821px){
+  .js .has-coverflow .project-grid.coverflow-stage>.project-card{height:440px;width:min(390px,calc(100% - 94px))}
+  .js .has-coverflow .project-grid.coverflow-stage>.coverflow-side-hit{width:min(390px,calc(100% - 94px))}
+  .js .has-coverflow .project-image{height:190px}
+}
+@media(max-width:790px){
+  .js .has-coverflow>.page-heading{padding-top:18px}
+  .js .has-coverflow>.page-heading h1{font-size:22px;line-height:1.4;margin-top:0}
+  .js .has-coverflow>.page-heading h1 br{display:none}
+  .js .has-coverflow>.page-heading .eyebrow,.js .has-coverflow>.page-heading .work-total{display:none}
+  .js .has-coverflow .works-toolbar{margin-top:15px;padding-top:14px}
+  .js .has-coverflow .works-toolbar>p{font-size:10px}
+}

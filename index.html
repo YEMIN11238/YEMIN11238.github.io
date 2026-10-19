@@ -10,7 +10,10 @@
   <meta property="og:type" content="website">
   <title>YEMIN — 个人工作台</title>
   <script>document.documentElement.classList.add('js');try{if(localStorage.getItem('yemin-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=motion-2">
+  <link rel="stylesheet" href="boot-motion.css?v=motion-2">
+  <link rel="stylesheet" href="carousel.css?v=motion-2">
+  <link rel="stylesheet" href="ambient.css?v=motion-2">
 </head>
 <body>
   <svg class="svg-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
@@ -29,22 +32,28 @@
 
   <a class="skip-link" href="#main-content">跳到主要内容</a>
 
-  <div class="boot-screen" id="boot-screen" role="dialog" aria-modal="true" aria-labelledby="boot-title">
-    <div class="boot-orbit orbit-one"></div><div class="boot-orbit orbit-two"></div>
-    <div class="boot-topline"><span class="wordmark"><span class="brand-mark">Y</span> YEMIN OS</span><span class="boot-edition">PERSONAL EDITION</span></div>
-    <section class="terminal">
-      <div class="window-bar"><span class="traffic-lights" aria-hidden="true"><i></i><i></i><i></i></span><span>yemin — terminal</span><span class="window-meta">⌘ 01</span></div>
-      <div class="terminal-body">
-        <p class="terminal-command"><span>~</span> open personal-workspace</p>
-        <p class="terminal-muted">一个关于创作、工具与好奇心的地方。</p>
-        <div class="boot-checks"><p><span>✓</span> 交互网页与日常工具</p><p><span>✓</span> 可复用 Skill 与小游戏</p><p><span>✓</span> 作品和分享已准备就绪</p></div>
-        <h1 id="boot-title">欢迎来到<br><strong>YEMIN11238 的工作台<span class="cursor">_</span></strong></h1>
-        <button class="boot-button" id="enter-desktop">进入工作台 <svg><use href="#i-arrow"/></svg></button>
-        <p class="terminal-hint">或按 <kbd>Enter ↵</kbd> 开始探索</p>
+  <div class="boot-screen boot-console" id="boot-screen" role="dialog" aria-modal="true" aria-labelledby="boot-title" aria-describedby="boot-description">
+    <h1 class="sr-only" id="boot-title">欢迎来到 YEMIN OS 个人工作台</h1>
+    <p class="sr-only" id="boot-description">终端会逐行展示项目与创作方向。随时按 Enter、Escape 或跳过按钮进入；也可等待输出完成。</p>
+    <section class="terminal boot-console-panel" aria-label="启动终端">
+      <div class="window-bar"><span class="traffic-lights" aria-hidden="true"><i></i><i></i><i></i></span><span>yemin@workspace — zsh — 100×30</span><button class="boot-skip" id="skip-boot" aria-label="跳过启动动画并进入工作台">跳过动画 ↗</button></div>
+      <div class="boot-transcript" id="boot-transcript" aria-hidden="true">
+        <p class="boot-row boot-version">YEMIN OS v2.0 — Personal Workspace</p>
+        <p class="boot-row boot-system"><span>[ OK ]</span> 加载 /products · Pop 与 Wild Talker</p>
+        <p class="boot-row boot-system"><span>[ OK ]</span> 挂载 /interfaces · 网页、3D 与交互</p>
+        <p class="boot-row boot-system"><span>[ OK ]</span> 挂载 /skills · 可复用的玻璃界面</p>
+        <p class="boot-row boot-system"><span>[ OK ]</span> 连接 GitHub 与小红书</p>
+        <p class="boot-row boot-command"><span>yemin@workspace ~ % </span><span data-type="whoami">whoami</span></p>
+        <p class="boot-row boot-answer">YEMIN11238</p>
+        <p class="boot-row boot-command"><span>yemin@workspace ~ % </span><span data-type="cat about.md">cat about.md</span></p>
+        <p class="boot-row boot-answer">把好奇心，做成可以使用的作品。</p>
+        <p class="boot-row boot-answer boot-detail">macOS 工具 · 浏览器翻译扩展 · 交互网页 · Skill</p>
+        <p class="boot-row boot-command"><span>yemin@workspace ~ % </span><span data-type='echo "探索 · 制作 · 打磨"'>echo "探索 · 制作 · 打磨"</span></p>
+        <p class="boot-row boot-answer"><mark>探索 · 制作 · 打磨</mark></p>
+        <p class="boot-row boot-command"><span>yemin@workspace ~ % </span><span data-type="open yemin.os">open yemin.os</span></p>
       </div>
-      <div class="terminal-bottom"><span><i class="status-dot"></i> 所有创意，保持打开</span><span>v1.0</span></div>
+      <div class="boot-actions"><span id="boot-state" aria-hidden="true">正在载入，可随时进入</span><button class="boot-button" id="enter-desktop">进入工作台 <span>Enter ↵</span></button><span class="boot-down" aria-hidden="true">↓</span></div>
     </section>
-    <div class="boot-footer"><span>YEMIN11238</span><span>DESIGNED TO BE EXPLORED</span></div>
   </div>
 
   <div class="desktop" id="desktop">
@@ -110,6 +119,8 @@
     <footer class="terminal-statusbar"><div class="status-prompt"><span>yemin@workspace</span><span>~</span><span>$</span><span id="status-view">cat about.md</span><span class="status-cursor">_</span></div><div class="status-controls"><button id="theme-toggle" aria-label="切换为深色主题" aria-pressed="false"><svg class="sun-icon"><use href="#i-sun"/></svg><svg class="moon-icon"><use href="#i-moon"/></svg><span>THEME</span></button><button id="restart-button" aria-label="重新打开启动终端"><svg><use href="#i-restart"/></svg><span>RESTART</span></button><span class="status-ready"><i class="status-dot"></i> SYSTEM READY</span></div></footer>
   </div>
   <p class="sr-only" id="view-announcement" role="status" aria-live="polite"></p>
-  <script src="app.js" defer></script>
+  <script src="app.js?v=motion-2" defer></script>
+  <script src="carousel.js?v=motion-2" defer></script>
+  <script src="ambient.js?v=motion-2" defer></script>
 </body>
 </html>

@@ -1,0 +1,39 @@
+/* A terminal boot sequence and a shared motion rhythm, implemented for YEMIN OS. */
+.boot-console{padding:0;overflow:hidden;background:var(--window-soft);background-image:none;align-items:stretch;justify-content:stretch;opacity:1;filter:none;transform:none;transition:opacity .68s ease,filter .68s ease,transform .76s cubic-bezier(.2,.7,.2,1)}
+.boot-console-panel{display:flex;flex-direction:column;width:100%;height:100%;border:0;border-radius:0;box-shadow:none;background:var(--window-soft)}
+.boot-console .window-bar{height:43px;flex-shrink:0;font-size:11px}
+.boot-console .traffic-lights{left:16px;gap:8px}.boot-console .traffic-lights i{width:11px;height:11px}
+.boot-skip{position:absolute;right:16px;background:none;color:var(--body);font-size:11px;padding:10px;min-height:38px}
+.boot-skip:hover{color:var(--ink-strong)}
+.boot-transcript{flex:1;min-height:0;overflow:auto;padding:25px 5vw 20px;font-family:var(--mono);font-size:14px;line-height:1.85;scrollbar-width:thin}
+.boot-row{opacity:0;transform:translateY(4px);transition:opacity .18s ease,transform .2s ease;min-height:1.85em;white-space:pre-wrap;overflow-wrap:anywhere}
+.boot-row.is-visible{opacity:1;transform:none}.boot-version{color:var(--body);font-weight:600;margin-bottom:7px}
+.boot-system{color:var(--muted)}.boot-system>span{color:#45956c;font-weight:600}
+.boot-command{margin-top:20px;color:var(--ink-strong)}.boot-command>span:first-child{color:#4b79c3;font-weight:600}
+.boot-answer{color:var(--ink-strong)}.boot-detail{color:var(--body)}
+.boot-answer mark{padding:3px 8px;background:#f6eacd;color:#775a20}
+.boot-command .is-typing::after{content:'▌';display:inline-block;color:var(--ink);margin-left:2px;animation:terminalCaret .9s steps(1,end) infinite}
+.boot-actions{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:12px 20px 22px;flex-shrink:0;background:linear-gradient(transparent,var(--window-soft) 24%)}
+.boot-actions>span:first-child{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.06em;min-height:15px}
+.boot-console .boot-button{margin:0;padding:11px 22px;background:none;color:#4977bf;border:1px solid transparent;font-family:var(--mono);font-size:12px;gap:20px;min-height:44px}
+.boot-console .boot-button:hover{box-shadow:none;transform:translateY(-2px);background:var(--accent-soft);border-color:var(--line)}
+.boot-console .boot-button>span{font-size:10px;color:var(--muted)}
+.boot-down{color:#6b94ca;font-size:21px;animation:enterFloat 2s ease-in-out infinite}
+.boot-console.is-leaving{animation:none;opacity:0;filter:blur(5px);transform:translateY(-26px) scale(1.02);pointer-events:none}
+.js:not(.booting) .desktop{animation:none}
+.js.launching .desktop{animation:workspaceLaunch .78s cubic-bezier(.2,.8,.2,1) both}
+.js .view.active{animation:none}
+.main-nav>a{transition:background .25s ease,color .25s ease,transform .25s ease,box-shadow .25s ease}
+.main-nav>a:hover{transform:translateX(3px)}
+.main-nav>a::before{content:'';position:absolute;left:-10px;width:3px;height:0;border-radius:3px;background:#5f8ad0;transition:height .32s cubic-bezier(.2,.8,.2,1)}
+.main-nav>a[aria-current=page]::before{height:32px}
+.nav-icon{transition:transform .3s cubic-bezier(.2,.8,.2,1),color .25s}
+.main-nav>a:hover .nav-icon{transform:translateY(-2px) rotate(-5deg)}
+.contact-links>a{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .25s}
+.contact-links>a:hover{transform:translateY(-6px);box-shadow:0 14px 28px -19px #344c7080}
+.home-project{transition:transform .32s cubic-bezier(.2,.8,.2,1),background .25s}
+@keyframes terminalCaret{0%,48%{opacity:1}49%,100%{opacity:0}}
+@keyframes enterFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+@keyframes workspaceLaunch{from{opacity:0;transform:translateY(18px) scale(.982);filter:blur(3px)}to{opacity:1;transform:none;filter:none}}
+@media(max-width:600px){.boot-console .window-bar{justify-content:flex-start;padding-left:65px;font-size:8px}.boot-console .traffic-lights{left:12px;gap:5px}.boot-console .traffic-lights i{width:8px;height:8px}.boot-skip{right:8px;font-size:9px}.boot-transcript{padding:20px 20px 10px;font-size:11px;line-height:1.9}.boot-command{margin-top:17px}.boot-actions{padding-bottom:18px}.boot-console .boot-button{font-size:12px}.boot-system{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.boot-console,.boot-row,.main-nav>a,.nav-icon,.contact-links>a,.home-project{transition:none!important}.boot-row{opacity:1;transform:none}.boot-down,.boot-command .is-typing::after,.js.launching .desktop{animation:none!important}.boot-console.is-leaving{filter:none;transform:none}}
