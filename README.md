@@ -1,6 +1,6 @@
-# YEMIN OS
+# 张俊豪的个人工作台
 
-YEMIN11238 的个人网站，使用 HTML、CSS 和原生 JavaScript，部署于 GitHub Pages。
+张俊豪的个人网站，使用 HTML、CSS 和原生 JavaScript，部署于 GitHub Pages。
 
 - 关于、产品、工具与 Skill、记录、社交入口
 - 终端启动、浅深色主题、键盘导航

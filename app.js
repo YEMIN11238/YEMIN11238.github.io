@@ -45,7 +45,7 @@
     });
     document.getElementById('window-title').textContent = filenames[next];
     document.getElementById('status-view').textContent = `cat ${filenames[next]}`;
-    document.title = `${viewNames[next]} · YEMIN — 个人工作台`;
+    document.title = `${viewNames[next]} · 张俊豪 — 个人工作台`;
     announce(`已打开${viewNames[next]}`);
     if (documentArea) documentArea.scrollTop = 0;
     if (!first && !reduced.matches && typeof Element.prototype.animate === 'function') {
