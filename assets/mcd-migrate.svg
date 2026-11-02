@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="530" viewBox="0 0 1200 530" role="img" aria-label="保存固定餐单，检查两家门店，比较保留原样与许可替代的官方报价。样本采集于2026年10月18日。">
+  <rect width="1200" height="530" rx="28" fill="#f7f4ec"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+    <rect x="42" y="32" width="228" height="30" rx="15" fill="#e8e3d7"/>
+    <text x="60" y="52" fill="#59534a" font-size="13" font-weight="700" letter-spacing="1">MCD USUAL MIGRATE</text>
+    <text x="44" y="118" fill="#252c27" font-size="43" font-weight="750">换一家店，也想点回老样子。</text>
+    <text x="46" y="155" fill="#666a62" font-size="20">保存要求 → 核对本店菜单和特制 → 比较改动与官方价格</text>
+    <rect x="44" y="190" width="345" height="262" rx="20" fill="#ffffff" stroke="#dedbd2"/>
+    <text x="67" y="227" fill="#8b5544" font-size="14" font-weight="700">01  我的固定餐单</text>
+    <text x="67" y="265" fill="#252c27" font-size="24" font-weight="700">板烧三件套</text>
+    <text x="67" y="302" fill="#343b34" font-size="18">汉堡去烤味酱</text>
+    <text x="67" y="334" fill="#343b34" font-size="18">中杯无糖可乐 · 去冰</text>
+    <rect x="67" y="355" width="294" height="39" rx="10" fill="#edf3ec"/>
+    <text x="81" y="381" fill="#3e6647" font-size="17">大薯条可改中薯条 · 预算 ¥38</text>
+    <text x="67" y="425" fill="#777a72" font-size="14">必须要求不满足，该候选停止</text>
+    <path d="M404 319h31m-9-9 10 9-10 9" fill="none" stroke="#a6aaa1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="454" y="190" width="702" height="262" rx="20" fill="#ffffff" stroke="#dedbd2"/>
+    <text x="479" y="227" fill="#8b5544" font-size="14" font-weight="700">02  两店官方核价 · 历史实测</text>
+    <text x="479" y="267" fill="#777a72" font-size="15">方案</text>
+    <text x="843" y="267" fill="#777a72" font-size="15">食品一店</text>
+    <text x="1007" y="267" fill="#777a72" font-size="15">悦荟广场</text>
+    <path d="M479 284h650" stroke="#e9e8e1"/>
+    <text x="479" y="322" fill="#252c27" font-size="21" font-weight="650">保留大薯条</text>
+    <text x="843" y="322" fill="#252c27" font-size="25" font-weight="700">¥36.00</text>
+    <text x="1007" y="322" fill="#252c27" font-size="25" font-weight="700">¥37.00</text>
+    <path d="M479 341h650" stroke="#e9e8e1"/>
+    <text x="479" y="381" fill="#52674d" font-size="21" font-weight="650">许可替代：换中薯条</text>
+    <text x="843" y="381" fill="#52674d" font-size="25" font-weight="700">¥34.50</text>
+    <text x="1007" y="381" fill="#52674d" font-size="25" font-weight="700">¥34.50</text>
+    <text x="479" y="425" fill="#777a72" font-size="14">先满足预算，再比较改动数量与价格</text>
+    <text x="46" y="488" fill="#73796f" font-size="14">2026-10-18 17:50 北京时间 · 参数已提交核价，响应未逐项回显全部特制，未验证实际出餐</text>
+    <text x="46" y="513" fill="#73796f" font-size="13">非麦当劳官方产品 · 当前供应与价格需重新查询 · 不下单、不支付</text>
+  </g>
+</svg>

@@ -67,3 +67,18 @@
   .intro-avatar{position:absolute;right:5px;top:0;width:54px;height:54px;margin:0}
   .intro-copy .eyebrow{padding-right:64px}
 }
+
+/* Current project identities and original screenshot presentation. */
+.aipm-icon{background:linear-gradient(145deg,#556c5a,#26362c)}
+.cinepilot-icon{background:linear-gradient(145deg,#77b283,#2b6540)}
+.mosslume-icon{background:linear-gradient(145deg,#8b9b5d,#3c563a)}
+.baiyao-icon{background:linear-gradient(145deg,#9c7185,#503c55)}
+.aipm-visual,.cinepilot-visual{background:#191b1f}
+.mosslume-visual{background:#1b2a1b}
+.baiyao-visual{background:#2d202c}
+.mcd-visual,.mcd-migrate-visual{background:#fff5df}
+.project-grid .project-card .project-image:is(.aipm-visual,.cinepilot-visual,.miobot-visual,.mosslume-visual,.baiyao-visual,.mcd-visual,.mcd-migrate-visual) img{object-fit:contain}
+
+.miobot-icon{background:linear-gradient(145deg,#b19bdb,#7354a4)}
+.mcd-icon{background:linear-gradient(145deg,#c89a49,#936432)}
+.miobot-visual{background:#e6e3ef}
